@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
-    </head>
-    <body>
-        <div id="main">
-            <h3>This is my first widget.</h3>
-            <span id="labelText"></span>
-            <input type="text" id="userInput">
-        </div>
-        <script type="text/javascript">
-            //always subscribe to ready event and implement widget related code
-            //inside callback function , it is the best practice while developing widgets
-            JFCustomWidget.subscribe("ready", function(){
-                var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
-                document.getElementById('labelText').innerHTML = label;
-                //subscribe to form submit event
-                JFCustomWidget.subscribe("submit", function(){
-                    var msg = {
-                        //you should valid attribute to data for JotForm
-                        //to be able to use youw widget as required
-                        valid: true,
-                        value: document.getElementById('userInput').value
-                    }
-                    // send value to JotForm
-                    JFCustomWidget.sendSubmit(msg);
-                });
+
+<head>
+    <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <h3>This is my first widget.</h3>
+        <span id="labelText"></span>
+        <input type="text" id="userInput">
+    </div>
+    <script type="text/javascript">
+        //always subscribe to ready event and implement widget related code
+        //inside callback function , it is the best practice while developing widgets
+        JFCustomWidget.subscribe("ready", function () {
+            var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
+            document.getElementById('labelText').innerHTML = label;
+            //subscribe to form submit event
+            JFCustomWidget.subscribe("submit", function () {
+                var msg = {
+                    //you should valid attribute to data for JotForm
+                    //to be able to use youw widget as required
+                    valid: true,
+                    value: document.getElementById('userInput').value
+                }
+                // send value to JotForm
+                JFCustomWidget.sendSubmit(msg);
             });
-        </script>
-    </body>
-    <iframe src="https://angry-kilby-2c8818.netlify.app" allow="camera;microphone" width="600" height="600">
-    
-    </iframe>
+        });
+
+    </script>
+</body>
+
+<iframe id="myFrame" src="https://angry-kilby-2c8818.netlify.app" allow="camera;microphone" width="600" height="600">
+</iframe>
+<div>
+    <script type="text/javascript">
+        if (document.querySelectorAll('#root article video')[0]) {
+            debugger;
+            var videoElement = document.querySelectorAll('#root article video')[0]
+            var element = document.getElementsByClassName('video');
+            element.appendChild(videoElement);
+        }
+    </script>
+    <!-- <video controls onended="myFunction()">
+            <source src="https://angry-kilby-2c8818.netlify.app" type="video/mp4">
+        </video> -->
+</div>
+<div className="video">
+
+</div>
+
+
+<script>
+    function deneme() {
+        var iframe = document.getElementById("myFrame");
+        var elemnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
+        //bu ilk h1 elemanını alıyor
+    }
+</script>
+
+<script>
+    window.addEventListener('message', receiveMessage, false);
+
+    function receiveMessage(evt) {
+        if (evt.origin === 'https://angry-kilby-2c8818.netlify.app') {
+            alert("got message: " + evt.data);
+            //evt.data icerisinde blob geliyor
+        }
+    }
+</script>
+
+<script>
+    function myFunction() {
+        console.log("Burdayiiim******");
+
+    }
+</script>
+
 </html>
