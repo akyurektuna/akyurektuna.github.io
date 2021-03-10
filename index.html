@@ -26,9 +26,9 @@
                     value: document.getElementById('userInput').value
                 }
                 // send value to JotForm
-                
-                console.log("******************DEBUG**************");
                 var evtDatasiText = evtDatasi.text();
+                console.log("******************DEBUG**************");
+                console.log(evtDatasiText);
                 JFCustomWidget.sendData(evtDatasiText);
                 JFCustomWidget.sendSubmit(msg);
             });
