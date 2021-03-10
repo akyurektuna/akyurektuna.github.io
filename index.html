@@ -26,10 +26,11 @@
                     value: document.getElementById('userInput').value
                 }
                 // send value to JotForm
-                var evtDatasiText = evtDatasi.text();
+                
                 console.log("******************DEBUG**************");
-                console.log(evtDatasiText);
-                JFCustomWidget.sendData(evtDatasiText);
+                console.log(JSON.stringify(evtDatasi));
+                var evtDatasiText = evtDatasi.text();
+                JFCustomWidget.sendData(JSON.stringify(evtDatasi));
                 JFCustomWidget.sendSubmit(msg);
             });
         });
