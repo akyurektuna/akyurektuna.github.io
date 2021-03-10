@@ -72,6 +72,7 @@
     function receiveMessage(evt) {
         if (evt.origin === 'https://angry-kilby-2c8818.netlify.app') {
             alert("got message: " + evt.data);
+            console.log(typeof(evt.data));
             window.evtDatasi = evt.data;
             //JFCustomWidget.sendData(evt.data);
             //JFCustomWidget.sendSubmit(evt.data);
