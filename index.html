@@ -12,6 +12,7 @@
         <input type="text" id="userInput">
     </div>
     <script type="text/javascript">
+        var evtDatasi = null;
         //always subscribe to ready event and implement widget related code
         //inside callback function , it is the best practice while developing widgets
         JFCustomWidget.subscribe("ready", function () {
@@ -26,6 +27,8 @@
                     value: document.getElementById('userInput').value
                 }
                 // send value to JotForm
+                
+                JFCustomWidget.sendData(evt.data);
                 JFCustomWidget.sendSubmit(msg);
             });
         });
@@ -67,7 +70,9 @@
     function receiveMessage(evt) {
         if (evt.origin === 'https://angry-kilby-2c8818.netlify.app') {
             alert("got message: " + evt.data);
-            JFCustomWidget.sendSubmit(evt.data);
+            evtDatasi = evt.data;
+            //JFCustomWidget.sendData(evt.data);
+            //JFCustomWidget.sendSubmit(evt.data);
             //evt.data icerisinde blob geliyor
         }
     }
