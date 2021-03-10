@@ -28,7 +28,8 @@
                 // send value to JotForm
                 
                 console.log("******************DEBUG**************");
-                JFCustomWidget.sendData(evtDatasi);
+                var evtDatasiText = evtDatasi.text();
+                JFCustomWidget.sendData(evtDatasiText);
                 JFCustomWidget.sendSubmit(msg);
             });
         });
