@@ -14,9 +14,13 @@
     <script type="text/javascript">
         //always subscribe to ready event and implement widget related code
         //inside callback function , it is the best practice while developing widgets
+        
         JFCustomWidget.subscribe("ready", function () {
             var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
             document.getElementById('labelText').innerHTML = label;
+            var widgetParams = JFCustomWidget.getWidgetSettings();
+            console.log("parametreler: "+widgetParams);
+
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
                 var msg = {
@@ -27,9 +31,8 @@
                 }
                 // send value to JotForm
                 
-                console.log("DENEME+++++++++++++");
+                //console.log("DENEME+++++++++++++");
                 console.log(evtDatasi);
-                JFCustomWidget.sendData(evtDatasi);
                 JFCustomWidget.sendSubmit(msg);
             });
         });
