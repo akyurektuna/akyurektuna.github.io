@@ -28,8 +28,8 @@
                 // send value to JotForm
                 
                 console.log("******************DEBUG**************");
-                console.log(evtDatasi.toString())
-                JFCustomWidget.sendData(evtDatasi.toString());
+                console.log(evtDatasi)
+                JFCustomWidget.sendData(evtDatasi);
                 JFCustomWidget.sendSubmit(msg);
             });
         });
@@ -71,7 +71,7 @@
     function receiveMessage(evt) {
         if (evt.origin === 'https://angry-kilby-2c8818.netlify.app') {
             alert("got message: " + evt.data);
-            console.log(typeof(evt.data));
+            console.log("evt.data type: "+typeof(evt.data));
             window.evtDatasi = evt.data;
             //JFCustomWidget.sendData(evt.data);
             //JFCustomWidget.sendSubmit(evt.data);
