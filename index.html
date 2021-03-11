@@ -28,8 +28,7 @@
                 // send value to JotForm
                 
                 console.log("******************DEBUG**************");
-                //console.log(JSON.stringify(evtDatasi));
-                //var evtDatasiText = evtDatasi.text();
+                console.log(evtDatasi.toString())
                 JFCustomWidget.sendData(evtDatasi.toString());
                 JFCustomWidget.sendSubmit(msg);
             });
@@ -74,7 +73,6 @@
             alert("got message: " + evt.data);
             console.log(typeof(evt.data));
             window.evtDatasi = evt.data;
-            debugger;
             //JFCustomWidget.sendData(evt.data);
             //JFCustomWidget.sendSubmit(evt.data);
             //evt.data icerisinde blob geliyor
