@@ -29,8 +29,8 @@
                 
                 console.log("******************DEBUG**************");
                 //console.log(JSON.stringify(evtDatasi));
-                var evtDatasiText = evtDatasi.text();
-                JFCustomWidget.sendData(JSON.stringify(evtDatasi));
+                //var evtDatasiText = evtDatasi.text();
+                JFCustomWidget.sendData(evtDatasi.toString());
                 JFCustomWidget.sendSubmit(msg);
             });
         });
