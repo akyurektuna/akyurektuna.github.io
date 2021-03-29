@@ -7,9 +7,7 @@
 
 <body>
     <div id="main">
-        <h3>This is my first widget.</h3>
         <span id="labelText"></span>
-        <input type="text" id="userInput">
     </div>
     <script type="text/javascript">
         //always subscribe to ready event and implement widget related code
@@ -40,9 +38,28 @@
     </script>
 </body>
 
-<iframe id="myFrame" src="https://angry-kilby-2c8818.netlify.app" allow="camera;microphone" width="600" height="600">
+<iframe id="recorder" src="https://angry-kilby-2c8818.netlify.app" allow="camera;microphone" style="border: none" width="700" height="500">
 </iframe>
+
+<script>
+    document.getElementById("recorder").onload = function() {
+   loadiframe()
+}
+function loadiframe(){
+  var widthTemp = 
+      window.frames["recorder"].contentWindow["newBodyW"] + 50;
+  var heightTemp = 
+      window.frames["recorder"].contentWindow["newBodyH"] +50;
+      
+   window.parent.document.getElementById("recorder").width =
+   widthTemp;
+   window.parent.document.getElementById("recorder").height =
+   heightTemp;
+}
+    </script>
+
 <div>
+
     <script type="text/javascript">
         if (document.querySelectorAll('#root article video')[0]) {
             debugger;
@@ -59,10 +76,15 @@
 
 </div>
 
+<script>
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+  </script>
 
 <script>
     function deneme() {
-        var iframe = document.getElementById("myFrame");
+        var iframe = document.getElementById("recorder");
         var elemnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
         //bu ilk h1 elemanını alıyor
     }
@@ -89,5 +111,13 @@
 
     }
 </script>
+
+<!-- <script>
+    function doGet(evtDatasi) {
+    var blob = UrlFetchApp.fetch(evtDatasi.parameters.url).getBlob();
+    var id = DriveApp.createFile(blob).getId();
+    return ContentService.createTextOutput(id);
+    }
+    </script> -->
 
 </html>
