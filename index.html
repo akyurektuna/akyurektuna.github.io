@@ -42,21 +42,17 @@
 </iframe>
 
 <script>
-    document.getElementById("recorder").onload = function() {
-   loadiframe()
-}
-function loadiframe(){
-  var widthTemp = 
-      window.frames["recorder"].contentWindow["newBodyW"] + 50;
-  var heightTemp = 
-      window.frames["recorder"].contentWindow["newBodyH"] +50;
-      
-   window.parent.document.getElementById("recorder").width =
-   widthTemp;
-   window.parent.document.getElementById("recorder").height =
-   heightTemp;
-}
-    </script>
+    document.getElementById("recorder").onload = function () { loadiframe() }
+    function loadiframe() {
+        var widthTemp =
+            window.frames["recorder"].contentWindow["newBodyW"] + 50;
+        var heightTemp =
+            window.frames["recorder"].contentWindow["newBodyH"] + 50;
+
+        window.parent.document.getElementById("recorder").width = widthTemp;
+        window.parent.document.getElementById("recorder").height = heightTemp;
+    }
+</script>
 
 <div>
 
