@@ -17,7 +17,7 @@
             var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
             document.getElementById('labelText').innerHTML = label;
             var widgetParams = JFCustomWidget.getWidgetSettings();
-            console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
+            //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
 
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
@@ -97,6 +97,9 @@
             //JFCustomWidget.sendData(evt.data);
             //JFCustomWidget.sendSubmit(evt.data);
             //evt.data icerisinde blob geliyor
+            JFCustomWidget.requestFrameResize({
+                height: 530
+            });
         }
     }
 </script>
